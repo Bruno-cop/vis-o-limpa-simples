@@ -1,0 +1,24 @@
+-- Script Anti-Neblina e Visão Limpa
+-- Mantém o jogo sempre claro, sem neblina e sombras
+
+local RunService = game:GetService("RunService")
+local Lighting = game:GetService("Lighting")
+
+RunService.RenderStepped:Connect(function()
+    -- Remove neblina
+    Lighting.FogStart = 0
+    Lighting.FogEnd = 100000
+    Lighting.FogColor = Color3.new(1,1,1)
+
+    -- Sempre claro
+    Lighting.ClockTime = 14
+    Lighting.Brightness = 2
+    Lighting.Ambient = Color3.fromRGB(255,255,255)
+    Lighting.OutdoorAmbient = Color3.fromRGB(255,255,255)
+
+    -- Sem sombras
+    Lighting.GlobalShadows = false
+
+    -- Contraste melhor
+    Lighting.ExposureCompensation = 0.2
+end)
